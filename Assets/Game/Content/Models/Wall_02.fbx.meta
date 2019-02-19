@@ -1,26 +1,14 @@
 fileFormatVersion: 2
-guid: e8167542df9d7e846a0652fb1a647110
+guid: 6763cab0f64bd364cbfb4283b91a1e84
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
-    100000: Base
-    100002: //RootNode
-    100004: Fluffers
-    100006: Launcher
-    400000: Base
-    400002: //RootNode
-    400004: Fluffers
-    400006: Launcher
+    100000: //RootNode
+    400000: //RootNode
     2100000: lambert1
-    2300000: Base
-    2300002: Fluffers
-    2300004: Launcher
-    3300000: Base
-    3300002: Fluffers
-    3300004: Launcher
-    4300000: Launcher
-    4300002: Base
-    4300004: Fluffers
+    2300000: //RootNode
+    3300000: //RootNode
+    4300000: Wall_02
   externalObjects: {}
   materials:
     importMaterials: 0
