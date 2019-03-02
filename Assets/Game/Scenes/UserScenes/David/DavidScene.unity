@@ -369,7 +369,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 598388856}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.03607, z: 0.00718}
+  m_LocalPosition: {x: 0, y: 0.03607, z: 0.00672}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 56411179}
@@ -1003,9 +1003,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fce81a3a9c4dd6b44b06b9b003bfd8ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_MinMaxRotations: {x: -100, y: 5}
+  m_MinMaxRotations: {x: -100, y: -11.816}
   m_MinMaxPower: {x: 0, y: 0}
-  m_Power: 0.3
+  m_Power: 0.2
   m_BoulderPrefab: {fileID: 0}
   m_CurrentBoulder: {fileID: 1506053128}
   m_Launcher: {fileID: 56411179}

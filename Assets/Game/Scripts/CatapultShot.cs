@@ -14,6 +14,9 @@ public class CatapultShot : MonoBehaviour
 	[SerializeField] private Transform m_Origin;
 	private bool m_ReadyToThrow = true;
 	private bool m_CurrentlyLaunching = false;
+	private bool m_Returning;
+	private float m_Duration = 0;
+	private float m_DurationTwo = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -21,6 +24,7 @@ public class CatapultShot : MonoBehaviour
 		//m_Launcher.eulerAngles = new Vector3(m_MinMaxRotations.x, 0, 0);
 		m_CurrentBoulder.useGravity = false;
 		m_CurrentBoulder.velocity = Vector3.zero;
+		m_CurrentBoulder.transform.parent = m_Origin;
 	}
 
     // Update is called once per frame
@@ -32,28 +36,57 @@ public class CatapultShot : MonoBehaviour
 			m_ReadyToThrow = false;
 		}
 
-		if(m_CurrentlyLaunching == true)
+		Launching();
+
+		Returning();
+	}
+
+	private void Launching()
+	{
+		if (m_CurrentlyLaunching == true)
 		{
-			m_Launcher.DORotate(new Vector3(m_MinMaxRotations.y, 0, 0), m_Power * 1.5f, RotateMode.FastBeyond360);
-			if(m_Launcher.eulerAngles.x == m_MinMaxRotations.y)
+			m_Duration = 0.15f / m_Power;
+			m_Launcher.DOLocalRotate(new Vector3(m_MinMaxRotations.y, 0, 0), m_Duration, RotateMode.Fast);
+			m_CurrentlyLaunching = false;
+			
+		}
+		if(m_Duration > 0)
+		{
+			m_Duration -= Time.deltaTime;
+			if (m_Duration <= 0)
 			{
 				ThrowBoulder();
 			}
 		}
-		if(m_CurrentlyLaunching == false && m_ReadyToThrow == false)
+	}
+
+	private void Returning()
+	{
+		if (m_Returning)
 		{
-			m_Launcher.DORotate(new Vector3(m_MinMaxRotations.x, 0, 0), 1.5f, RotateMode.FastBeyond360);
-			if(m_Launcher.eulerAngles.x == m_MinMaxRotations.x)
+			m_DurationTwo = 1.5f;
+			m_Launcher.DOLocalRotate(new Vector3(m_MinMaxRotations.x, 0, 0), m_DurationTwo, RotateMode.Fast);
+			m_Returning = false;
+		}
+		if (m_DurationTwo > 0)
+		{
+			m_DurationTwo -= Time.deltaTime;
+			if (m_DurationTwo <= 0)
 			{
 				m_ReadyToThrow = true;
+				m_Returning = false;
 			}
 		}
 	}
 
-	public void ThrowBoulder()
+	private void ThrowBoulder()
 	{
+		m_CurrentBoulder.transform.parent = null;
 		m_CurrentBoulder.useGravity = true;
 		m_CurrentBoulder.AddForce(m_Origin.forward * m_Power, ForceMode.Impulse);
 		m_CurrentlyLaunching = false;
+		m_Returning = true;
 	}
+
+	
 }
