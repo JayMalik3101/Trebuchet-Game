@@ -1,16 +1,17 @@
-﻿using System.Collections;
+﻿	using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 
 public class CatapultShot : MonoBehaviour
 {
+	public Rigidbody m_CurrentBoulder;
+	public Transform m_Origin;
 	[SerializeField] private Vector2 m_MinMaxRotations;
 	[SerializeField] private Vector2 m_MinMaxPower;
 	[SerializeField] private float m_Power;
-	[SerializeField] private Rigidbody m_CurrentBoulder;
 	[SerializeField] private Transform m_Launcher;
-	[SerializeField] private Transform m_Origin;
+	
 	private bool m_ReadyToThrow = true;
 	private bool m_CurrentlyLaunching = false;
 	private bool m_Shoot;
@@ -84,7 +85,7 @@ public class CatapultShot : MonoBehaviour
 		m_CurrentlyLaunching = false;
 	}
 
-	private void FreezeBoulder()
+	public void FreezeBoulder()
 	{
 		m_CurrentBoulder.velocity = Vector3.zero;
 		m_CurrentBoulder.constraints = RigidbodyConstraints.FreezeAll;
@@ -99,4 +100,6 @@ public class CatapultShot : MonoBehaviour
 		m_CurrentBoulder.transform.parent = null;
 		m_CurrentBoulder.useGravity = true;
 	}
+
+	
 }
