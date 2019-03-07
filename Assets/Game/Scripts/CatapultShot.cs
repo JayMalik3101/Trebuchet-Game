@@ -21,6 +21,7 @@ public class CatapultShot : MonoBehaviour
 	TweenCallback m_LaunchingCompelete;
 	TweenCallback m_ReturnComplete;
 	private Vector3 m_OriginalEulerRotation;
+	private bool m_Returning;
 	
     // Start is called before the first frame update
     void Start()
@@ -34,12 +35,11 @@ public class CatapultShot : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-		if(m_ReadyToThrow && OVRInput.GetDown(OVRInput.Button.SecondaryIndexTrigger))
+		if(m_ReadyToThrow && m_Returning == false && (OVRInput.GetDown(OVRInput.Button.SecondaryIndexTrigger) || Input.GetKeyDown(KeyCode.Space)))
 		{
 			m_CurrentlyLaunching = true;
 			m_ReadyToThrow = false;
 		}
-
 		Launching();
 	}
 
@@ -47,8 +47,8 @@ public class CatapultShot : MonoBehaviour
 	{
 		if (m_CurrentlyLaunching == true)
 		{
-			m_Duration = 0.15f / m_Power;
-			m_LauncherTween = m_Launcher.DOLocalRotate(new Vector3(m_MinMaxRotations.y, 0, 0), m_Duration + 0.25f, RotateMode.Fast).OnComplete(Returning);
+			m_Duration = 2f / m_Power;
+			m_LauncherTween = m_Launcher.DOLocalRotate(new Vector3(m_MinMaxRotations.y, 0, 0), m_Duration + 0.25f, RotateMode.Fast).OnComplete(m_LaunchingCompelete);
 			m_CurrentlyLaunching = false;			
 		}
 		if (m_Duration > 0)
@@ -63,6 +63,7 @@ public class CatapultShot : MonoBehaviour
 
 	private void Returning()
 	{
+		m_Returning = true;
 		m_DurationTwo = 1.5f;
 		m_Launcher.DOLocalRotate(m_OriginalEulerRotation, m_DurationTwo, RotateMode.Fast).OnComplete(m_ReturnComplete);
 	}
@@ -71,6 +72,7 @@ public class CatapultShot : MonoBehaviour
 	{
 		m_Launcher.localEulerAngles = m_OriginalEulerRotation;
 		m_ReadyToThrow = true;
+		m_Returning = false;
 	}
 
 	private void ThrowBoulder()
@@ -100,6 +102,4 @@ public class CatapultShot : MonoBehaviour
 		m_CurrentBoulder.transform.parent = null;
 		m_CurrentBoulder.useGravity = true;
 	}
-
-	
 }
