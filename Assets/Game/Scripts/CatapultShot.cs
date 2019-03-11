@@ -17,19 +17,21 @@ public class CatapultShot : MonoBehaviour
 	private bool m_Shoot;
 	private float m_Duration = 0;
 	private float m_DurationTwo = 0;
-	Tween m_LauncherTween;
-	TweenCallback m_LaunchingCompelete;
-	TweenCallback m_ReturnComplete;
+	private Tween m_LauncherTween;
+	private TweenCallback m_LaunchingCompelete;
+	private TweenCallback m_ReturnComplete;
 	private Vector3 m_OriginalEulerRotation;
 	private bool m_Returning;
-	
-    // Start is called before the first frame update
-    void Start()
+	private StatKeeping m_Stats;
+
+	// Start is called before the first frame update
+	void Start()
     {
 		FreezeBoulder();
 		m_OriginalEulerRotation = m_Launcher.localEulerAngles;
 		m_LaunchingCompelete += Returning;
 		m_ReturnComplete += ReturningComplete;
+		m_Stats = GameObject.Find("Stats").GetComponent<StatKeeping>();
 	}
 
     // Update is called once per frame
@@ -47,7 +49,7 @@ public class CatapultShot : MonoBehaviour
 	{
 		if (m_CurrentlyLaunching == true)
 		{
-			m_Duration = 2f / m_Power;
+			m_Duration = 0.05f / m_Power;
 			m_LauncherTween = m_Launcher.DOLocalRotate(new Vector3(m_MinMaxRotations.y, 0, 0), m_Duration + 0.25f, RotateMode.Fast).OnComplete(m_LaunchingCompelete);
 			m_CurrentlyLaunching = false;			
 		}
@@ -81,8 +83,9 @@ public class CatapultShot : MonoBehaviour
 		if(m_CurrentBoulder != null)
 		{
 			UnFreezeBoulder();
-			m_CurrentBoulder.AddForce(m_Origin.forward * m_Power, ForceMode.Impulse);
+			m_CurrentBoulder.AddForce(m_Origin.up * m_Power, ForceMode.Impulse);
 			m_CurrentBoulder = null;
+			m_Stats.m_ShotsFired ++;
 		}
 		m_CurrentlyLaunching = false;
 	}
