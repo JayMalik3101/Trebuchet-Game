@@ -1,0 +1,171 @@
+fileFormatVersion: 2
+guid: 75b0c114d2bf5194d908c19143919051
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: LevelTower_shattered_shard1
+    100004: LevelTower_shattered_shard10
+    100006: LevelTower_shattered_shard11
+    100008: LevelTower_shattered_shard12
+    100010: LevelTower_shattered_shard13
+    100012: LevelTower_shattered_shard3
+    100014: LevelTower_shattered_shard4
+    100016: LevelTower_shattered_shard5
+    100018: LevelTower_shattered_shard6
+    100020: LevelTower_shattered_shard7
+    100022: LevelTower_shattered_shard8
+    100024: LevelTower_shattered_shard9
+    100026: shard2_LevelTower_shattered
+    400000: //RootNode
+    400002: LevelTower_shattered_shard1
+    400004: LevelTower_shattered_shard10
+    400006: LevelTower_shattered_shard11
+    400008: LevelTower_shattered_shard12
+    400010: LevelTower_shattered_shard13
+    400012: LevelTower_shattered_shard3
+    400014: LevelTower_shattered_shard4
+    400016: LevelTower_shattered_shard5
+    400018: LevelTower_shattered_shard6
+    400020: LevelTower_shattered_shard7
+    400022: LevelTower_shattered_shard8
+    400024: LevelTower_shattered_shard9
+    400026: shard2_LevelTower_shattered
+    2100000: LevelTower_shattered_shard1Mat
+    2100002: LevelTower_shattered_shard10Mat
+    2100004: LevelTower_shattered_shard11Mat
+    2100006: LevelTower_shattered_shard12Mat
+    2100008: LevelTower_shattered_shard13Mat
+    2100010: LevelTower_shattered_shard3Mat
+    2100012: LevelTower_shattered_shard4Mat
+    2100014: LevelTower_shattered_shard5Mat
+    2100016: LevelTower_shattered_shard6Mat
+    2100018: LevelTower_shattered_shard7Mat
+    2100020: LevelTower_shattered_shard8Mat
+    2100022: LevelTower_shattered_shard9Mat
+    2100024: shard2_LevelTower_shatteredMat
+    2300000: LevelTower_shattered_shard1
+    2300002: LevelTower_shattered_shard10
+    2300004: LevelTower_shattered_shard11
+    2300006: LevelTower_shattered_shard12
+    2300008: LevelTower_shattered_shard13
+    2300010: LevelTower_shattered_shard3
+    2300012: LevelTower_shattered_shard4
+    2300014: LevelTower_shattered_shard5
+    2300016: LevelTower_shattered_shard6
+    2300018: LevelTower_shattered_shard7
+    2300020: LevelTower_shattered_shard8
+    2300022: LevelTower_shattered_shard9
+    2300024: shard2_LevelTower_shattered
+    3300000: LevelTower_shattered_shard1
+    3300002: LevelTower_shattered_shard10
+    3300004: LevelTower_shattered_shard11
+    3300006: LevelTower_shattered_shard12
+    3300008: LevelTower_shattered_shard13
+    3300010: LevelTower_shattered_shard3
+    3300012: LevelTower_shattered_shard4
+    3300014: LevelTower_shattered_shard5
+    3300016: LevelTower_shattered_shard6
+    3300018: LevelTower_shattered_shard7
+    3300020: LevelTower_shattered_shard8
+    3300022: LevelTower_shattered_shard9
+    3300024: shard2_LevelTower_shattered
+    4300000: LevelTower_shattered_shard1
+    4300002: LevelTower_shattered_shard10
+    4300004: LevelTower_shattered_shard11
+    4300006: LevelTower_shattered_shard12
+    4300008: LevelTower_shattered_shard13
+    4300010: LevelTower_shattered_shard3
+    4300012: LevelTower_shattered_shard4
+    4300014: LevelTower_shattered_shard5
+    4300016: LevelTower_shattered_shard6
+    4300018: LevelTower_shattered_shard7
+    4300020: LevelTower_shattered_shard8
+    4300022: LevelTower_shattered_shard9
+    4300024: shard2_LevelTower_shattered
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
