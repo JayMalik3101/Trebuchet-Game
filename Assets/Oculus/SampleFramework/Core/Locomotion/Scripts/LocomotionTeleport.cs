@@ -497,7 +497,7 @@ public class LocomotionTeleport : MonoBehaviour
 	/// Aim and Target handlers are responsible for populating the AimData with the relevant aim data,
 	/// which is used for a number of purposes within the teleport system.
 	/// </summary>
-	public event Action<AimData> UpdateAimData;
+	public event  Action<AimData> UpdateAimData;
 
 	/// <summary>
 	/// The target handler will call this method when the aim data has been updated and is ready to be

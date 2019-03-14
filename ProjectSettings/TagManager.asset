@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Launcher
   - Projectile
+  - Structure
+  - Floor
   layers:
   - Default
   - TransparentFX

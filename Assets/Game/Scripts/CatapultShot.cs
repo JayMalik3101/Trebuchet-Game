@@ -11,6 +11,7 @@ public class CatapultShot : MonoBehaviour
 	[SerializeField] private Vector2 m_MinMaxPower;
 	[SerializeField] private float m_Power;
 	[SerializeField] private Transform m_Launcher;
+	[SerializeField] private float m_ShotDuration;
 	
 	private bool m_ReadyToThrow = true;
 	private bool m_CurrentlyLaunching = false;
@@ -23,6 +24,7 @@ public class CatapultShot : MonoBehaviour
 	private Vector3 m_OriginalEulerRotation;
 	private bool m_Returning;
 	private StatKeeping m_Stats;
+	private OVRGrabbable m_Grabbable;
 
 	// Start is called before the first frame update
 	void Start()
@@ -31,13 +33,14 @@ public class CatapultShot : MonoBehaviour
 		m_OriginalEulerRotation = m_Launcher.localEulerAngles;
 		m_LaunchingCompelete += Returning;
 		m_ReturnComplete += ReturningComplete;
+		m_Grabbable = GetComponent<OVRGrabbable>();
 		m_Stats = GameObject.Find("Stats").GetComponent<StatKeeping>();
 	}
 
     // Update is called once per frame
     void Update()
     {
-		if(m_ReadyToThrow && m_Returning == false && (OVRInput.GetDown(OVRInput.Button.SecondaryIndexTrigger) || Input.GetKeyDown(KeyCode.Space)))
+		if(m_ReadyToThrow && m_Returning == false && (OVRInput.GetDown(OVRInput.Button.SecondaryIndexTrigger) || Input.GetKeyDown(KeyCode.Space)) && m_Grabbable.grabbedBy == null)
 		{
 			m_CurrentlyLaunching = true;
 			m_ReadyToThrow = false;
@@ -49,7 +52,7 @@ public class CatapultShot : MonoBehaviour
 	{
 		if (m_CurrentlyLaunching == true)
 		{
-			m_Duration = 0.05f / m_Power;
+			m_Duration = m_ShotDuration / m_Power;
 			m_LauncherTween = m_Launcher.DOLocalRotate(new Vector3(m_MinMaxRotations.y, 0, 0), m_Duration + 0.25f, RotateMode.Fast).OnComplete(m_LaunchingCompelete);
 			m_CurrentlyLaunching = false;			
 		}
