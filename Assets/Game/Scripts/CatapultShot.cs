@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using UnityEngine.SceneManagement;
 
 public class CatapultShot : MonoBehaviour
 {
@@ -40,12 +41,25 @@ public class CatapultShot : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-		if(m_ReadyToThrow && m_Returning == false && (OVRInput.GetDown(OVRInput.Button.SecondaryIndexTrigger) || Input.GetKeyDown(KeyCode.Space)) && m_Grabbable.grabbedBy == null)
+		if(m_ReadyToThrow && m_Returning == false && (OVRInput.GetDown(OVRInput.Button.SecondaryIndexTrigger) || Input.GetKeyDown(KeyCode.Space))/* && m_Grabbable.grabbedBy == null*/)
 		{
 			m_CurrentlyLaunching = true;
 			m_ReadyToThrow = false;
 		}
 		Launching();
+
+		if (Input.GetKeyDown(KeyCode.R) || OVRInput.GetDown(OVRInput.Button.PrimaryIndexTrigger))
+		{
+			SceneManager.LoadScene(0);
+		}
+		if (Input.GetKeyDown(KeyCode.UpArrow) || OVRInput.GetDown(OVRInput.Button.Two))
+		{
+			m_Power += 0.5f;
+		}
+		if (Input.GetKeyDown(KeyCode.DownArrow) || OVRInput.GetDown(OVRInput.Button.One))
+		{
+			m_Power -= 0.5f;
+		}
 	}
 
 	private void Launching()
