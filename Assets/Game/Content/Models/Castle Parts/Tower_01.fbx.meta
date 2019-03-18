@@ -4,11 +4,47 @@ ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
     100000: //RootNode
+    100002: shard67
+    100004: shard68
+    100006: shard69
+    100008: shard70
+    100010: shard71
+    100012: shard72
+    100014: Tower_01 1
+    100016: Tower_01_Shattered
     400000: //RootNode
+    400002: shard67
+    400004: shard68
+    400006: shard69
+    400008: shard70
+    400010: shard71
+    400012: shard72
+    400014: Tower_01 1
+    400016: Tower_01_Shattered
     2100000: lambert1
     2300000: //RootNode
+    2300002: shard67
+    2300004: shard68
+    2300006: shard69
+    2300008: shard70
+    2300010: shard71
+    2300012: shard72
+    2300014: Tower_01 1
     3300000: //RootNode
+    3300002: shard67
+    3300004: shard68
+    3300006: shard69
+    3300008: shard70
+    3300010: shard71
+    3300012: shard72
+    3300014: Tower_01 1
     4300000: Tower_01
+    4300002: shard67
+    4300004: shard68
+    4300006: shard69
+    4300008: shard70
+    4300010: shard72
+    4300012: shard71
   externalObjects: {}
   materials:
     importMaterials: 0

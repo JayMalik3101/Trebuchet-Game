@@ -4,11 +4,52 @@ ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
     100000: //RootNode
+    100002: CastleWall_06 1
+    100004: CastleWall_06_Shattered
+    100006: shard70
+    100008: shard71
+    100010: shard72
+    100012: shard73
+    100014: shard74
+    100016: shard75
+    100018: shard76
     400000: //RootNode
+    400002: CastleWall_06 1
+    400004: CastleWall_06_Shattered
+    400006: shard70
+    400008: shard71
+    400010: shard72
+    400012: shard73
+    400014: shard74
+    400016: shard75
+    400018: shard76
     2100000: lambert1
     2300000: //RootNode
+    2300002: CastleWall_06 1
+    2300004: shard70
+    2300006: shard71
+    2300008: shard72
+    2300010: shard73
+    2300012: shard74
+    2300014: shard75
+    2300016: shard76
     3300000: //RootNode
+    3300002: CastleWall_06 1
+    3300004: shard70
+    3300006: shard71
+    3300008: shard72
+    3300010: shard73
+    3300012: shard74
+    3300014: shard75
+    3300016: shard76
     4300000: CastleWall_06
+    4300002: shard70
+    4300004: shard71
+    4300006: shard73
+    4300008: shard74
+    4300010: shard75
+    4300012: shard76
+    4300014: shard72
   externalObjects: {}
   materials:
     importMaterials: 0
