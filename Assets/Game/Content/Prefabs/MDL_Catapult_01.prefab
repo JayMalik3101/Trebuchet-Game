@@ -41,13 +41,13 @@ GameObject:
   - component: {fileID: 1866555564447024833}
   - component: {fileID: 211087689143701337}
   - component: {fileID: 2641772098130935075}
+  - component: {fileID: 5129024616187048136}
   - component: {fileID: 7859509243486058707}
   - component: {fileID: 1851648587}
   - component: {fileID: 1851648590}
   - component: {fileID: 1851648591}
   - component: {fileID: 1851648592}
   - component: {fileID: 1851648593}
-  - component: {fileID: 5129024616187048136}
   m_Layer: 0
   m_Name: Launcher
   m_TagString: Untagged
@@ -115,6 +115,19 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &5129024616187048136
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 828276669562455712}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4b42ba3671d04c43a809a962cec271f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_CatapultShot: {fileID: 1388112434}
 --- !u!65 &7859509243486058707
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -193,19 +206,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.011825297, y: 0.002189673, z: 0.009455357}
   m_Center: {x: -0.00006380229, y: 0.03001, z: 0.00174429}
---- !u!114 &5129024616187048136
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 828276669562455712}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d4b42ba3671d04c43a809a962cec271f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_CatapultShot: {fileID: 1388112434}
 --- !u!1 &4757306897186221646
 GameObject:
   m_ObjectHideFlags: 0
@@ -367,6 +367,7 @@ MonoBehaviour:
   m_snapOrientation: 0
   m_snapOffset: {fileID: 0}
   m_grabPoints: []
+  m_grabbedBy: {fileID: 0}
 --- !u!114 &1388112434
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -385,6 +386,7 @@ MonoBehaviour:
   m_MinMaxPower: {x: 0, y: 0}
   m_Power: 0.5
   m_Launcher: {fileID: 1866555564447024833}
+  m_ShotDuration: 0
 --- !u!1 &7462964029019828059
 GameObject:
   m_ObjectHideFlags: 0
