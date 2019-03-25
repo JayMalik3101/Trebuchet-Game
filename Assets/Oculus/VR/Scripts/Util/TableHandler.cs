@@ -127,6 +127,8 @@ public class TableHandler : MonoBehaviour
         rb.angularVelocity = angularVelocity;
         m_grabbedBy = null;
         m_grabbedCollider = null;
+
+        AddAngularVelocity(grabbedRigidbody.velocity.magnitude);
     }
 
     void Awake()
@@ -149,7 +151,13 @@ public class TableHandler : MonoBehaviour
     {
         m_grabbedKinematic = GetComponent<Rigidbody>().isKinematic;
 
-        GetComponent<Rigidbody>().angularVelocity = new Vector3(0, 10);
+       
+    }
+
+
+    public void AddAngularVelocity(float force)
+    {
+        GetComponent<Rigidbody>().angularVelocity = new Vector3(0, force);
     }
 
     void OnDestroy()
