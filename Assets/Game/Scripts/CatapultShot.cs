@@ -42,7 +42,7 @@ public class CatapultShot : MonoBehaviour
     void Update()
     {
 		if(m_ReadyToThrow && m_Returning == false && (OVRInput.GetDown(OVRInput.Button.SecondaryIndexTrigger) || Input.GetKeyDown(KeyCode.Space))/* && m_Grabbable.grabbedBy == null*/)
-		{
+		{	
 			m_CurrentlyLaunching = true;
 			m_ReadyToThrow = false;
 		}
