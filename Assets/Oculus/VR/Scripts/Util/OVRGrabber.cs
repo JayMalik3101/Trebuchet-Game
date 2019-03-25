@@ -81,6 +81,17 @@ public class OVRGrabber : MonoBehaviour
             GrabEnd();
         }
     }
+    public void ForceRelease(TableHandler grabbable)
+    {
+        bool canRelease = (
+            (m_grabbedObj != null) &&
+            (m_grabbedObj == grabbable)
+        );
+        if (canRelease)
+        {
+            GrabEnd();
+        }
+    }
 
     protected virtual void Awake()
     {
