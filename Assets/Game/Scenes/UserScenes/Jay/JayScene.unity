@@ -38,13 +38,13 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 0.051391393, g: 0.051391393, b: 0.051391393, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 11
-  m_GIWorkflowMode: 1
+  m_GIWorkflowMode: 0
   m_GISettings:
     serializedVersion: 2
     m_BounceScale: 1
@@ -52,17 +52,17 @@ LightmapSettings:
     m_AlbedoBoost: 1
     m_EnvironmentLightingMode: 0
     m_EnableBakedLightmaps: 1
-    m_EnableRealtimeLightmaps: 0
+    m_EnableRealtimeLightmaps: 1
   m_LightmapEditorSettings:
     serializedVersion: 10
     m_Resolution: 2
-    m_BakeResolution: 100
-    m_AtlasSize: 2048
-    m_AO: 1
+    m_BakeResolution: 40
+    m_AtlasSize: 1024
+    m_AO: 0
     m_AOMaxDistance: 1
     m_CompAOExponent: 1
     m_CompAOExponentDirect: 0
-    m_Padding: 6
+    m_Padding: 2
     m_LightmapParameters: {fileID: 0}
     m_LightmapsBakeMode: 1
     m_TextureCompression: 1
@@ -80,7 +80,7 @@ LightmapSettings:
     m_PVRFilterTypeIndirect: 0
     m_PVRFilterTypeAO: 0
     m_PVRFilteringMode: 1
-    m_PVRCulling: 0
+    m_PVRCulling: 1
     m_PVRFilteringGaussRadiusDirect: 1
     m_PVRFilteringGaussRadiusIndirect: 5
     m_PVRFilteringGaussRadiusAO: 2
@@ -378,16 +378,16 @@ Light:
   m_Enabled: 1
   serializedVersion: 8
   m_Type: 2
-  m_Color: {r: 0.9433962, g: 0.7383971, b: 0.15574935, a: 1}
-  m_Intensity: 0.5
+  m_Color: {r: 1, g: 0.9764706, b: 0.68235296, a: 1}
+  m_Intensity: 1
   m_Range: 10
   m_SpotAngle: 30
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 0
+    m_Type: 2
     m_Resolution: -1
     m_CustomResolution: -1
-    m_Strength: 1
+    m_Strength: 0.5
     m_Bias: 0.05
     m_NormalBias: 0.4
     m_NearPlane: 0.2
@@ -398,7 +398,7 @@ Light:
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_Lightmapping: 1
+  m_Lightmapping: 4
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
@@ -433,16 +433,16 @@ Light:
   m_Enabled: 1
   serializedVersion: 8
   m_Type: 2
-  m_Color: {r: 0.9433962, g: 0.7383971, b: 0.15574935, a: 1}
-  m_Intensity: 0.5
+  m_Color: {r: 1, g: 0.9764706, b: 0.68235296, a: 1}
+  m_Intensity: 1
   m_Range: 10
   m_SpotAngle: 30
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 0
+    m_Type: 2
     m_Resolution: -1
     m_CustomResolution: -1
-    m_Strength: 1
+    m_Strength: 0.5
     m_Bias: 0.05
     m_NormalBias: 0.4
     m_NearPlane: 0.2
@@ -453,7 +453,7 @@ Light:
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_Lightmapping: 1
+  m_Lightmapping: 4
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
@@ -613,6 +613,10 @@ PrefabInstance:
       propertyPath: m_StitchLightmapSeams
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2300000, guid: 0915108c8ad563b47a253bca68a85d01, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: b5867a9c87c943540a05f3885493e149, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0915108c8ad563b47a253bca68a85d01, type: 3}
 --- !u!4 &144194174 stripped
@@ -684,6 +688,10 @@ PrefabInstance:
       propertyPath: m_StitchLightmapSeams
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2300000, guid: f568bf7dd8987474390fb0f78a0ca60e, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 3974d7a6c40d41a4f9706a33fa9fa961, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f568bf7dd8987474390fb0f78a0ca60e, type: 3}
 --- !u!4 &152916447 stripped
@@ -755,6 +763,10 @@ PrefabInstance:
       propertyPath: m_StitchLightmapSeams
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2300000, guid: 0915108c8ad563b47a253bca68a85d01, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: b5867a9c87c943540a05f3885493e149, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0915108c8ad563b47a253bca68a85d01, type: 3}
 --- !u!4 &209815481 stripped
@@ -1201,6 +1213,10 @@ PrefabInstance:
       propertyPath: m_StitchLightmapSeams
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2300000, guid: 0915108c8ad563b47a253bca68a85d01, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: b5867a9c87c943540a05f3885493e149, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0915108c8ad563b47a253bca68a85d01, type: 3}
 --- !u!4 &361860731 stripped
@@ -1497,6 +1513,10 @@ PrefabInstance:
       propertyPath: m_StitchLightmapSeams
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2300000, guid: 0915108c8ad563b47a253bca68a85d01, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: b5867a9c87c943540a05f3885493e149, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0915108c8ad563b47a253bca68a85d01, type: 3}
 --- !u!4 &447692707 stripped
@@ -2018,6 +2038,10 @@ PrefabInstance:
       propertyPath: m_StitchLightmapSeams
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2300000, guid: 531e38593794ec84b98c6934a389dbe4, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 311dc3ee61f12984097db2c3d55d179b, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 531e38593794ec84b98c6934a389dbe4, type: 3}
 --- !u!4 &561820842 stripped
@@ -2164,6 +2188,10 @@ PrefabInstance:
       propertyPath: m_StitchLightmapSeams
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2300000, guid: 531e38593794ec84b98c6934a389dbe4, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 311dc3ee61f12984097db2c3d55d179b, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 531e38593794ec84b98c6934a389dbe4, type: 3}
 --- !u!4 &594723984 stripped
@@ -2437,7 +2465,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 9739d86c39fa0124d978c58db04aa5ee, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 3.202
+      value: 3.302
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 9739d86c39fa0124d978c58db04aa5ee, type: 3}
       propertyPath: m_LocalRotation.x
@@ -2475,6 +2503,10 @@ PrefabInstance:
       propertyPath: m_StitchLightmapSeams
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2300000, guid: 9739d86c39fa0124d978c58db04aa5ee, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 1bee0666cd8e7f049b7c3395a26978c7, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9739d86c39fa0124d978c58db04aa5ee, type: 3}
 --- !u!4 &644746030 stripped
@@ -2508,7 +2540,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 439d420d52b3c7a419c8f5889a063e07, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 3
+      value: 3.064
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 439d420d52b3c7a419c8f5889a063e07, type: 3}
       propertyPath: m_LocalRotation.x
@@ -2621,6 +2653,10 @@ PrefabInstance:
       propertyPath: m_StitchLightmapSeams
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2300000, guid: 0915108c8ad563b47a253bca68a85d01, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: b5867a9c87c943540a05f3885493e149, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0915108c8ad563b47a253bca68a85d01, type: 3}
 --- !u!4 &688467936 stripped
@@ -3174,6 +3210,10 @@ PrefabInstance:
       propertyPath: m_StitchLightmapSeams
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2300000, guid: 0915108c8ad563b47a253bca68a85d01, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: b5867a9c87c943540a05f3885493e149, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0915108c8ad563b47a253bca68a85d01, type: 3}
 --- !u!4 &1007485664 stripped
@@ -3434,16 +3474,16 @@ Light:
   m_Enabled: 1
   serializedVersion: 8
   m_Type: 2
-  m_Color: {r: 0.9433962, g: 0.7383971, b: 0.15574935, a: 1}
-  m_Intensity: 0.5
+  m_Color: {r: 1, g: 0.9764706, b: 0.68235296, a: 1}
+  m_Intensity: 1
   m_Range: 10
   m_SpotAngle: 30
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 0
+    m_Type: 2
     m_Resolution: -1
     m_CustomResolution: -1
-    m_Strength: 1
+    m_Strength: 0.5
     m_Bias: 0.05
     m_NormalBias: 0.4
     m_NearPlane: 0.2
@@ -3454,7 +3494,7 @@ Light:
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_Lightmapping: 1
+  m_Lightmapping: 4
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
@@ -3614,6 +3654,10 @@ PrefabInstance:
       propertyPath: m_StitchLightmapSeams
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2300000, guid: 0915108c8ad563b47a253bca68a85d01, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: b5867a9c87c943540a05f3885493e149, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0915108c8ad563b47a253bca68a85d01, type: 3}
 --- !u!4 &1169000735 stripped
@@ -3647,7 +3691,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 439d420d52b3c7a419c8f5889a063e07, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 3
+      value: 3.064
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 439d420d52b3c7a419c8f5889a063e07, type: 3}
       propertyPath: m_LocalRotation.x
@@ -3985,6 +4029,10 @@ PrefabInstance:
       propertyPath: m_StitchLightmapSeams
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2300000, guid: f568bf7dd8987474390fb0f78a0ca60e, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 3974d7a6c40d41a4f9706a33fa9fa961, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f568bf7dd8987474390fb0f78a0ca60e, type: 3}
 --- !u!4 &1255554041 stripped
@@ -4056,6 +4104,10 @@ PrefabInstance:
       propertyPath: m_StitchLightmapSeams
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2300000, guid: 531e38593794ec84b98c6934a389dbe4, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 311dc3ee61f12984097db2c3d55d179b, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 531e38593794ec84b98c6934a389dbe4, type: 3}
 --- !u!4 &1289881794 stripped
@@ -4502,6 +4554,10 @@ PrefabInstance:
       propertyPath: m_StitchLightmapSeams
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2300000, guid: 0915108c8ad563b47a253bca68a85d01, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: b5867a9c87c943540a05f3885493e149, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0915108c8ad563b47a253bca68a85d01, type: 3}
 --- !u!4 &1519215948 stripped
@@ -4648,6 +4704,10 @@ PrefabInstance:
       propertyPath: m_StitchLightmapSeams
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2300000, guid: 0915108c8ad563b47a253bca68a85d01, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: b5867a9c87c943540a05f3885493e149, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0915108c8ad563b47a253bca68a85d01, type: 3}
 --- !u!4 &1581345774 stripped
@@ -4719,6 +4779,10 @@ PrefabInstance:
       propertyPath: m_StitchLightmapSeams
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2300000, guid: 0915108c8ad563b47a253bca68a85d01, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: b5867a9c87c943540a05f3885493e149, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0915108c8ad563b47a253bca68a85d01, type: 3}
 --- !u!4 &1631432600 stripped
@@ -4936,6 +5000,10 @@ PrefabInstance:
       propertyPath: m_StitchLightmapSeams
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2300000, guid: 531e38593794ec84b98c6934a389dbe4, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 311dc3ee61f12984097db2c3d55d179b, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 531e38593794ec84b98c6934a389dbe4, type: 3}
 --- !u!4 &1671767418 stripped
@@ -4971,16 +5039,16 @@ Light:
   m_Enabled: 1
   serializedVersion: 8
   m_Type: 2
-  m_Color: {r: 0.9433962, g: 0.7383971, b: 0.15574935, a: 1}
-  m_Intensity: 0.5
+  m_Color: {r: 1, g: 0.9764706, b: 0.68235296, a: 1}
+  m_Intensity: 1
   m_Range: 10
   m_SpotAngle: 30
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 0
+    m_Type: 2
     m_Resolution: -1
     m_CustomResolution: -1
-    m_Strength: 1
+    m_Strength: 0.5
     m_Bias: 0.05
     m_NormalBias: 0.4
     m_NearPlane: 0.2
@@ -4991,7 +5059,7 @@ Light:
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_Lightmapping: 1
+  m_Lightmapping: 4
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
@@ -5226,6 +5294,10 @@ PrefabInstance:
       propertyPath: m_StitchLightmapSeams
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2300000, guid: f568bf7dd8987474390fb0f78a0ca60e, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 3974d7a6c40d41a4f9706a33fa9fa961, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f568bf7dd8987474390fb0f78a0ca60e, type: 3}
 --- !u!4 &1726905495 stripped
@@ -5372,6 +5444,10 @@ PrefabInstance:
       propertyPath: m_StitchLightmapSeams
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2300000, guid: 0915108c8ad563b47a253bca68a85d01, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: b5867a9c87c943540a05f3885493e149, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0915108c8ad563b47a253bca68a85d01, type: 3}
 --- !u!4 &1728638487 stripped
@@ -5743,6 +5819,10 @@ PrefabInstance:
       propertyPath: m_StitchLightmapSeams
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2300000, guid: 0915108c8ad563b47a253bca68a85d01, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: b5867a9c87c943540a05f3885493e149, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0915108c8ad563b47a253bca68a85d01, type: 3}
 --- !u!4 &1820182865 stripped
@@ -5964,6 +6044,10 @@ PrefabInstance:
       propertyPath: m_StitchLightmapSeams
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2300000, guid: 0915108c8ad563b47a253bca68a85d01, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: b5867a9c87c943540a05f3885493e149, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0915108c8ad563b47a253bca68a85d01, type: 3}
 --- !u!4 &1884559474 stripped
@@ -6110,6 +6194,10 @@ PrefabInstance:
       propertyPath: m_StitchLightmapSeams
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2300000, guid: 0915108c8ad563b47a253bca68a85d01, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: b5867a9c87c943540a05f3885493e149, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0915108c8ad563b47a253bca68a85d01, type: 3}
 --- !u!4 &1950834335 stripped
@@ -6405,7 +6493,7 @@ Light:
   serializedVersion: 8
   m_Type: 1
   m_Color: {r: 1, g: 0.9769896, b: 0.6839622, a: 1}
-  m_Intensity: 1
+  m_Intensity: 2
   m_Range: 10
   m_SpotAngle: 30
   m_CookieSize: 10
@@ -6424,7 +6512,7 @@ Light:
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_Lightmapping: 1
+  m_Lightmapping: 4
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
@@ -6659,6 +6747,10 @@ PrefabInstance:
       propertyPath: m_StitchLightmapSeams
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2300000, guid: 0915108c8ad563b47a253bca68a85d01, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: b5867a9c87c943540a05f3885493e149, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0915108c8ad563b47a253bca68a85d01, type: 3}
 --- !u!4 &2107851020 stripped
@@ -6730,6 +6822,10 @@ PrefabInstance:
       propertyPath: m_StitchLightmapSeams
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2300000, guid: 0915108c8ad563b47a253bca68a85d01, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: b5867a9c87c943540a05f3885493e149, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0915108c8ad563b47a253bca68a85d01, type: 3}
 --- !u!4 &2111432310 stripped
