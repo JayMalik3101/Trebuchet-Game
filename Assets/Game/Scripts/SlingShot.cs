@@ -10,41 +10,34 @@ public class SlingShot : MonoBehaviour
 	public Transform m_Origin;
 	[SerializeField] private float m_Power;
 	[SerializeField] private Transform m_String;
+	[SerializeField] private Transform m_StringStartPoint;
+
 
 	private bool m_ReadyToShoot = true;
 	private bool m_CurrentlyLaunching = false;
 	private bool m_Shoot;
 	private float m_Duration = 0;
 	private float m_DurationTwo = 0;
-	private Tween m_LauncherTween;
-	private TweenCallback m_LaunchingCompelete;
-	private TweenCallback m_ReturnComplete;
+
 	private Quaternion m_OriginalRotation;
 	private bool m_Returning;
 	private StatKeeping m_Stats;
 	private OVRGrabbable m_Grabbable;
+	private OVRGrabbable m_StringGrabbable;
 
 	// Start is called before the first frame update
 	void Start()
 	{
 		FreezeProjectile();
 		m_OriginalRotation = m_String.localRotation;
-		m_LaunchingCompelete += Returning;
-		m_ReturnComplete += ReturningComplete;
 		m_Grabbable = GetComponent<OVRGrabbable>();
+		m_StringGrabbable = m_String.GetComponent<OVRGrabbable>();
 		m_Stats = GameObject.Find("Stats").GetComponent<StatKeeping>();
 	}
 
 	// Update is called once per frame
 	void Update()
 	{
-		if (m_ReadyToShoot && m_Returning == false )
-		{
-			m_CurrentlyLaunching = true;
-			m_ReadyToShoot = false;
-		}
-		Launching();
-
 		if (Input.GetKeyDown(KeyCode.R) || OVRInput.GetDown(OVRInput.Button.PrimaryIndexTrigger))
 		{
 			SceneManager.LoadScene(0);
@@ -59,49 +52,23 @@ public class SlingShot : MonoBehaviour
 		}
 	}
 
-	private void Launching()
+	private void LateUpdate()
 	{
-		if (m_CurrentlyLaunching == true)
-		{
-			//m_Duration = m_ShotDuration / m_Power;
-			//m_LauncherTween = m_Launcher.DOLocalRotate(new Vector3(m_MinMaxRotations.y, 0, 0), m_Duration + 0.25f, RotateMode.Fast).OnComplete(m_LaunchingCompelete);
-			m_CurrentlyLaunching = false;
-		}
-		if (m_Duration > 0)
-		{
-			m_Duration -= Time.deltaTime;
-			if (m_Duration <= 0)
-			{
-				ThrowProjectile();
-			}
-		}
+		PullString();
 	}
 
-	private void Returning()
+	private void PullString()
 	{
-		m_Returning = true;
-		m_DurationTwo = 1.5f;
-		//m_Launcher.DOLocalRotate(m_OriginalEulerRotation, m_DurationTwo, RotateMode.Fast).OnComplete(m_ReturnComplete);
-	}
-
-	private void ReturningComplete()
-	{
-		m_String.localRotation = m_OriginalRotation;
-		m_ReadyToShoot = true;
-		m_Returning = false;
-	}
-
-	private void ThrowProjectile()
-	{
-
-		if (m_CurrentProjectile != null)
+		if(m_StringGrabbable.grabbedBy != null)
 		{
-			UnFreezeProjectile();
-			m_CurrentProjectile.AddForce(m_Origin.up * m_Power, ForceMode.Impulse);
-			m_CurrentProjectile = null;
-			m_Stats.m_ShotsFired++;
+			float dist = (m_StringStartPoint.transform.position - m_String.position).magnitude;
+			m_String.transform.localPosition = m_StringStartPoint.transform.localPosition + new Vector3(5f * dist, 0f, 0f);
+
+			//if (device.GetTouchUp(SteamVR_Controller.ButtonMask.Trigger))
+			//{
+			//	Fire();
+			//}
 		}
-		m_CurrentlyLaunching = false;
 	}
 
 	public void FreezeProjectile()

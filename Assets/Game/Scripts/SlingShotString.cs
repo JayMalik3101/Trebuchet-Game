@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BowString : MonoBehaviour
+public class SlingShotString : MonoBehaviour
 {
+	[SerializeField] private Transform m_SlingShot;
 	private Vector3 m_OriginalPosition;
 	private Quaternion m_OriginalRotation;
 	private Rigidbody m_Rigidbody;
