@@ -8,6 +8,7 @@ TagManager:
   - Projectile
   - Structure
   - Floor
+  - Hand
   layers:
   - Default
   - TransparentFX
