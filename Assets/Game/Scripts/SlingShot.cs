@@ -8,10 +8,14 @@ public class SlingShot : MonoBehaviour
 {
 	public Rigidbody m_CurrentProjectile;
 	public Transform m_Origin;
+
+	public OVRGrabbable m_Grabbable;
+	public OVRGrabbable m_StringGrabbable;
+
 	[SerializeField] private float m_Power;
 	[SerializeField] private Transform m_String;
 	[SerializeField] private Transform m_StringStartPoint;
-
+	[SerializeField] private Transform m_SlingshotModel;
 
 	private bool m_ReadyToShoot = true;
 	private bool m_CurrentlyLaunching = false;
@@ -22,16 +26,14 @@ public class SlingShot : MonoBehaviour
 	private Quaternion m_OriginalRotation;
 	private bool m_Returning;
 	private StatKeeping m_Stats;
-	private OVRGrabbable m_Grabbable;
-	private OVRGrabbable m_StringGrabbable;
+
+	
 
 	// Start is called before the first frame update
 	void Start()
 	{
 		FreezeProjectile();
 		m_OriginalRotation = m_String.localRotation;
-		m_Grabbable = GetComponent<OVRGrabbable>();
-		m_StringGrabbable = m_String.GetComponent<OVRGrabbable>();
 		m_Stats = GameObject.Find("Stats").GetComponent<StatKeeping>();
 	}
 
@@ -50,24 +52,13 @@ public class SlingShot : MonoBehaviour
 		{
 			m_Power -= 0.5f;
 		}
-	}
-
-	private void LateUpdate()
-	{
-		PullString();
-	}
-
-	private void PullString()
-	{
-		if(m_StringGrabbable.grabbedBy != null)
+		if(m_Grabbable.grabbedBy != null && m_StringGrabbable.grabbedBy != null)
 		{
-			float dist = (m_StringStartPoint.transform.position - m_String.position).magnitude;
-			m_String.transform.localPosition = m_StringStartPoint.transform.localPosition + new Vector3(5f * dist, 0f, 0f);
-
-			//if (device.GetTouchUp(SteamVR_Controller.ButtonMask.Trigger))
-			//{
-			//	Fire();
-			//}
+			m_Grabbable.m_BothGrabbed = true;
+			m_StringGrabbable.m_BothGrabbed = true;
+			Vector3 relativePos = m_SlingshotModel.position - m_String.position;
+			Quaternion rotation = Quaternion.LookRotation(relativePos, Vector3.up);
+			m_SlingshotModel.rotation = rotation;
 		}
 	}
 
