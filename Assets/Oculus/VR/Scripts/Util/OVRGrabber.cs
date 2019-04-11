@@ -153,7 +153,8 @@ public class OVRGrabber : MonoBehaviour
             MoveGrabbedObject(destPos, destRot);
         }
         m_lastPos = transform.position;
-        m_lastRot = transform.rotation;
+		m_lastRot = transform.rotation;
+		
 
 		float prevFlex = m_prevFlex;
 		// Update values from inputs
@@ -320,12 +321,18 @@ public class OVRGrabber : MonoBehaviour
         if (forceTeleport)
         {
             grabbedRigidbody.transform.position = grabbablePosition;
-            grabbedRigidbody.transform.rotation = grabbableRotation;
+			if (m_grabbedObj != null)
+			{
+				grabbedRigidbody.transform.rotation = grabbableRotation;
+			}
         }
         else
         {
             grabbedRigidbody.MovePosition(grabbablePosition);
-            grabbedRigidbody.MoveRotation(grabbableRotation);
+			if (m_grabbedObj != null)
+			{
+				grabbedRigidbody.MoveRotation(grabbableRotation);
+			}
         }
     }
 
