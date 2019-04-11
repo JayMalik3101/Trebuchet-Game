@@ -15,7 +15,7 @@ public class SlingShot : MonoBehaviour
 	[SerializeField] private float m_Power;
 	[SerializeField] private Transform m_String;
 	[SerializeField] private Transform m_StringStartPoint;
-	[SerializeField] private Transform m_SlingshotModel;
+	[SerializeField] private Transform m_Target;
 
 	private bool m_ReadyToShoot = true;
 	private bool m_CurrentlyLaunching = false;
@@ -43,22 +43,28 @@ public class SlingShot : MonoBehaviour
 		if (Input.GetKeyDown(KeyCode.R) || OVRInput.GetDown(OVRInput.Button.PrimaryIndexTrigger))
 		{
 			SceneManager.LoadScene(0);
-		}
-		if (Input.GetKeyDown(KeyCode.UpArrow) || OVRInput.GetDown(OVRInput.Button.Two))
-		{
-			m_Power += 0.5f;
-		}
-		if (Input.GetKeyDown(KeyCode.DownArrow) || OVRInput.GetDown(OVRInput.Button.One))
-		{
-			m_Power -= 0.5f;
-		}
-		if(m_Grabbable.grabbedBy != null && m_StringGrabbable.grabbedBy != null)
+		}		
+	}
+
+	private void FixedUpdate()
+	{
+		if (m_Grabbable.grabbedBy != null && m_StringGrabbable.grabbedBy != null)
 		{
 			m_Grabbable.m_BothGrabbed = true;
 			m_StringGrabbable.m_BothGrabbed = true;
-			Vector3 relativePos = m_SlingshotModel.position - m_String.position;
+			//m_String.transform.LookAt(m_Target.position);
+			//transform.rotation = m_String.rotation;
+			Vector3 relativePos = m_Target.position - m_String.position;
 			Quaternion rotation = Quaternion.LookRotation(relativePos, Vector3.up);
-			m_SlingshotModel.rotation = rotation;
+			transform.rotation = rotation;
+			relativePos = m_String.position - m_Target.position;
+			rotation = Quaternion.LookRotation(relativePos, Vector3.up);
+			m_String.rotation = rotation;
+		}
+		else
+		{
+			m_Grabbable.m_BothGrabbed = false;
+			m_StringGrabbable.m_BothGrabbed = false;
 		}
 	}
 

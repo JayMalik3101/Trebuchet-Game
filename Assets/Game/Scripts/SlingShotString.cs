@@ -5,31 +5,33 @@ using UnityEngine;
 public class SlingShotString : MonoBehaviour
 {
 	[SerializeField] private Transform m_SlingShot;
+	[SerializeField] private Transform m_StartPoint;
+	[SerializeField] private Transform m_StartPointLeft;
+	[SerializeField] private Transform m_StartPointRight;
+	[SerializeField] private Transform m_Pull;
+	[SerializeField] private Transform m_Left;
+	[SerializeField] private Transform m_Right;
 	private Vector3 m_OriginalPosition;
 	private Quaternion m_OriginalRotation;
-	private Rigidbody m_Rigidbody;
-	private OVRGrabbable m_StringGrabbable;
+	[SerializeField] private OVRGrabbable m_StringGrabbable;
     // Start is called before the first frame update
     void Start()
     {
-		m_StringGrabbable = GetComponent<OVRGrabbable>();
-		m_Rigidbody = GetComponent<Rigidbody>();
-		m_OriginalPosition = transform.localPosition;
-		m_OriginalRotation = transform.localRotation;
-    }
+		m_Left.parent = m_StartPointLeft;
+		m_Right.parent = m_StartPointRight;
+		m_Right.localPosition = new Vector3(m_Right.localPosition.x, 0, m_Right.localPosition.z);
+		m_Left.localPosition = new Vector3(m_Left.localPosition.x, 0, m_Left.localPosition.z);
+	}
 
     // Update is called once per frame
     void Update()
     {
         if(m_StringGrabbable.grabbedBy == null)
 		{
-			m_Rigidbody.constraints = RigidbodyConstraints.FreezeAll;
-			transform.localPosition = m_OriginalPosition;
-			transform.localRotation = m_OriginalRotation;
+			m_Pull.position = m_StartPoint.position;
+			m_Pull.rotation = m_StartPoint.rotation;
 		}
-		else
-		{
-			m_Rigidbody.constraints = RigidbodyConstraints.None;
-		}
-    }
+		//m_Left.position = m_StartPointLeft.position;
+		//m_Right.position = m_StartPointRight.position;
+	}
 }
