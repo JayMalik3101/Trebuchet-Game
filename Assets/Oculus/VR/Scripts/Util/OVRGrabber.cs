@@ -307,7 +307,7 @@ public class OVRGrabber : MonoBehaviour
         }
     }
 
-    protected virtual void MoveGrabbedObject(Vector3 pos, Quaternion rot, bool forceTeleport = false)
+    protected virtual void MoveGrabbedObject(Vector3 pos, Quaternion rot, bool forceTeleport = true)
     {
         if (m_grabbedObj == null)
         {
@@ -320,18 +320,22 @@ public class OVRGrabber : MonoBehaviour
 
         if (forceTeleport)
         {
-            grabbedRigidbody.transform.position = grabbablePosition;
-			if (m_grabbedObj != null)
+			Debug.Log("hallo");
+			grabbedRigidbody.transform.position = grabbablePosition;
+			if (m_grabbedObj.m_BothGrabbed == false)
 			{
 				grabbedRigidbody.transform.rotation = grabbableRotation;
+				Debug.Log("hallo2");
 			}
         }
         else
         {
+			Debug.Log("hallo");
             grabbedRigidbody.MovePosition(grabbablePosition);
-			if (m_grabbedObj != null)
+			if (m_grabbedObj.m_BothGrabbed == false)
 			{
 				grabbedRigidbody.MoveRotation(grabbableRotation);
+				Debug.Log("hallo2");
 			}
         }
     }
