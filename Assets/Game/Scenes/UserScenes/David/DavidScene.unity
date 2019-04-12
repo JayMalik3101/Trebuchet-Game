@@ -19217,8 +19217,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64518567658c4de46b7d9ba97156ec69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_TurnDifference: 0.025
-  m_UpDownDifference: 10
+  m_TurnDifference: 0.05
+  m_UpDownDifference: 0.05
 --- !u!65 &1726045589
 BoxCollider:
   m_ObjectHideFlags: 0

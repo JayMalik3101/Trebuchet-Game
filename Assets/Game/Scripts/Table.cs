@@ -38,8 +38,8 @@ public class Table : MonoBehaviour
 			}
 			if (m_Rotating)
 			{
-				transform.Rotate(new Vector3(transform.eulerAngles.x, m_OriginalTableRotation.y - m_Difference.x, transform.eulerAngles.z));
-				//transform.eulerAngles = new Vector3(transform.eulerAngles.x, m_OriginalTableRotation.y - m_Difference.x * 20, transform.eulerAngles.z);
+				//transform.Rotate(new Vector3(transform.eulerAngles.x, m_OriginalTableRotation.y - m_Difference.x, transform.eulerAngles.z));
+				transform.eulerAngles = new Vector3(transform.eulerAngles.x, m_OriginalTableRotation.y - m_Difference.x * 20, transform.eulerAngles.z);
 				//m_OriginalTableRotation = transform.eulerAngles;
 			}
 		}
