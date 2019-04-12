@@ -320,22 +320,18 @@ public class OVRGrabber : MonoBehaviour
 
         if (forceTeleport)
         {
-			Debug.Log("hallo");
 			grabbedRigidbody.transform.position = grabbablePosition;
 			if (m_grabbedObj.m_BothGrabbed == false)
 			{
 				grabbedRigidbody.transform.rotation = grabbableRotation;
-				Debug.Log("hallo2");
 			}
         }
         else
         {
-			Debug.Log("hallo");
             grabbedRigidbody.MovePosition(grabbablePosition);
 			if (m_grabbedObj.m_BothGrabbed == false)
 			{
 				grabbedRigidbody.MoveRotation(grabbableRotation);
-				Debug.Log("hallo2");
 			}
         }
     }
