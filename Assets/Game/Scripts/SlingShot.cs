@@ -4,6 +4,13 @@ using UnityEngine;
 using DG.Tweening;
 using UnityEngine.SceneManagement;
 
+public interface IState
+{
+	void OnEnter();
+	void Update();
+	void OnExit();
+}
+
 public class SlingShot : MonoBehaviour
 {
 	public Rigidbody m_CurrentProjectile;
@@ -13,28 +20,28 @@ public class SlingShot : MonoBehaviour
 	public OVRGrabbable m_StringGrabbable;
 
 	[SerializeField] private float m_Power;
-	[SerializeField] private Rigidbody m_String;
-	[SerializeField] private Transform m_StringStartPoint;
+	[SerializeField] public Rigidbody m_String;
+	[SerializeField] public Transform m_StringStartPoint;
 	[SerializeField] private Transform m_Target;
 	[SerializeField] private float m_OriginalTimer;
 
-	private float m_Timer;
-	private bool m_Shooting;
+	public float m_Timer;
 
 	private bool m_ReadyToShoot = true;
 	private bool m_CurrentlyLaunching = false;
-	private bool m_Shoot;
 	private float m_Distance;
 	private Vector3 m_AllDistances;
+	public Vector3 AllDistances { get { return m_AllDistances; } set { m_AllDistances = value; } }
 
 	private Quaternion m_OriginalRotation;
-	private bool m_Returning;
 	private StatKeeping m_Stats;
 
-	private Tween m_StringTween;
-	private TweenCallback m_ReturnComplete;
+	public IState m_CurrentState;
 
-
+	private void Awake()
+	{
+		m_CurrentState = new NotHolding(this);
+	}
 
 	// Start is called before the first frame update
 	void Start()
@@ -50,38 +57,16 @@ public class SlingShot : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
-		//CorrectOrientation();
 		if (Input.GetKeyDown(KeyCode.R) || OVRInput.GetDown(OVRInput.Button.PrimaryIndexTrigger))
 		{
 			SceneManager.LoadScene(0);
 		}
-		if (m_StringGrabbable.grabbedBy != null && m_Shooting == false)
+		if (m_Grabbable.grabbedBy == null)
 		{
-			m_Shoot = true;
-			m_AllDistances = m_StringStartPoint.position - m_String.position;
-			CheckWhatsBiggest();
+			SwitchState(new NotHolding(this));
 		}
-		if (m_Shoot && m_StringGrabbable.grabbedBy == null && m_Shooting == false)
-		{
-			m_Shoot = false;
-			m_Shooting = true;
-			transform.rotation = m_OriginalRotation;
-		}
-		if (m_Shooting)
-		{
-			m_Timer -= Time.deltaTime;
-			Debug.Log("just shot");
-			if (m_Timer <= 0)
-			{
-				Fire();
-			}
-		}
-		//CorrectOrientation();
-	}
-
-	private void LateUpdate()
-	{
-		CorrectOrientation();
+		if (m_CurrentState != null)
+			m_CurrentState.Update();
 	}
 
 	public void Fire()
@@ -92,15 +77,30 @@ public class SlingShot : MonoBehaviour
 			m_CurrentProjectile.AddForce(m_Origin.forward * (m_Distance * m_Power), ForceMode.Impulse);
 			m_CurrentProjectile = null;
 			m_Timer = m_OriginalTimer;
-			m_Shooting = false;
 			m_Distance = 0;
 			//m_Stats.m_ShotsFired++;
 		}
 	}
 
+	public void CorrectOrientation()
+	{
+
+		transform.rotation = Quaternion.identity;
+		m_String.rotation = Quaternion.identity;
+		Vector3 relativePos = m_Target.position - m_String.position;
+		Quaternion rotation = Quaternion.LookRotation(relativePos, Vector3.up);
+		transform.rotation = rotation;
+		relativePos = m_String.position - m_Target.position;
+		rotation = Quaternion.LookRotation(relativePos, Vector3.up);
+		m_String.transform.rotation = rotation;
+		m_Grabbable.m_BothGrabbed = false;
+		m_StringGrabbable.m_BothGrabbed = false;
+	}
+
 	public void FreezeProjectile()
 	{
 		m_CurrentProjectile.velocity = Vector3.zero;
+		m_CurrentProjectile.GetComponent<Collider>().enabled = false;
 		m_CurrentProjectile.constraints = RigidbodyConstraints.FreezeAll;
 		m_CurrentProjectile.transform.parent = m_Origin;
 		m_CurrentProjectile.useGravity = false;
@@ -109,14 +109,15 @@ public class SlingShot : MonoBehaviour
 	private void UnFreezeProjectile()
 	{
 		m_CurrentProjectile.velocity = Vector3.zero;
+		m_CurrentProjectile.GetComponent<Collider>().enabled = true;
 		m_CurrentProjectile.constraints = RigidbodyConstraints.None;
 		m_CurrentProjectile.transform.parent = null;
 		m_CurrentProjectile.useGravity = true;
 	}
 
-	private void CheckWhatsBiggest()
+	public void CheckWhatsBiggest()
 	{
-		if(m_AllDistances.x >= m_Distance)
+		if (m_AllDistances.x >= m_Distance)
 		{
 			m_Distance = m_AllDistances.x;
 		}
@@ -130,27 +131,126 @@ public class SlingShot : MonoBehaviour
 		}
 	}
 
-	private void CorrectOrientation()
+	public void SwitchState(IState stateToSwitch)
 	{
-		if (m_Grabbable.grabbedBy != null && m_StringGrabbable.grabbedBy != null && !m_Shooting && m_Timer == m_OriginalTimer)
+		m_CurrentState.OnExit();
+		m_CurrentState = stateToSwitch;
+		if (stateToSwitch != null)
+			m_CurrentState.OnEnter();
+	}
+}
+
+public class NotHolding : IState
+{
+	SlingShot m_SlingShot;
+
+	public NotHolding(SlingShot refObject)
+	{
+		m_SlingShot = refObject;
+	}
+
+	public void OnEnter()
+	{
+		m_SlingShot.m_Grabbable.m_BothGrabbed = false;
+		m_SlingShot.m_StringGrabbable.m_BothGrabbed = false;
+	}
+	public void Update()
+	{
+		if (m_SlingShot.m_Grabbable.grabbedBy != null)
 		{
-			Debug.Log("Correct Orientation: " + Time.time);
-			m_OriginalRotation = transform.rotation;
-			m_Grabbable.m_BothGrabbed = true;
-			m_StringGrabbable.m_BothGrabbed = true;
-			transform.rotation = Quaternion.identity;
-			m_String.rotation = Quaternion.identity;
-			Vector3 relativePos = m_Target.position - m_String.position;
-			Quaternion rotation = Quaternion.LookRotation(relativePos, Vector3.up);
-			transform.rotation = rotation;
-			relativePos = m_String.position - m_Target.position;
-			rotation = Quaternion.LookRotation(relativePos, Vector3.up);
-			m_String.transform.rotation = rotation;
+			m_SlingShot.SwitchState(new Holding(m_SlingShot));
 		}
-		else
+	}
+	public void OnExit()
+	{
+
+	}
+}
+
+
+
+
+public class Holding : IState
+{
+	SlingShot m_SlingShot;
+
+	public Holding(SlingShot refObject)
+	{
+		m_SlingShot = refObject;
+	}
+
+	public void OnEnter()
+	{
+		m_SlingShot.m_Grabbable.m_BothGrabbed = false;
+		m_SlingShot.m_StringGrabbable.m_BothGrabbed = false;
+	}
+	public void Update()
+	{
+
+		if (m_SlingShot.m_Grabbable.grabbedBy != null && m_SlingShot.m_StringGrabbable.grabbedBy != null)
 		{
-			m_Grabbable.m_BothGrabbed = false;
-			m_StringGrabbable.m_BothGrabbed = false;
+			m_SlingShot.SwitchState(new DoubleHolding(m_SlingShot));
 		}
+	}
+	public void OnExit()
+	{
+
+	}
+}
+
+public class DoubleHolding : IState
+{
+	SlingShot m_SlingShot;
+
+	public DoubleHolding(SlingShot refObject)
+	{
+		m_SlingShot = refObject;
+	}
+
+	public void OnEnter()
+	{
+		m_SlingShot.m_Grabbable.m_BothGrabbed = true;
+		m_SlingShot.m_StringGrabbable.m_BothGrabbed = true;
+	}
+	public void Update()
+	{
+		m_SlingShot.AllDistances = m_SlingShot.m_StringStartPoint.position - m_SlingShot.m_String.position;
+		m_SlingShot.CheckWhatsBiggest();
+		m_SlingShot.CorrectOrientation();
+		if (m_SlingShot.m_StringGrabbable.grabbedBy == null)
+		{
+			m_SlingShot.SwitchState(new Shooting(m_SlingShot));
+		}
+	}
+	public void OnExit()
+	{
+	}
+}
+
+public class Shooting : IState
+{
+	SlingShot m_SlingShot;
+
+	public Shooting(SlingShot refObject)
+	{
+		m_SlingShot = refObject;
+	}
+
+	public void OnEnter()
+	{
+		m_SlingShot.m_Grabbable.m_BothGrabbed = true;
+		m_SlingShot.m_StringGrabbable.m_BothGrabbed = true;
+	}
+	public void Update()
+	{
+		m_SlingShot.m_Timer -= Time.deltaTime;
+		if (m_SlingShot.m_Timer <= 0)
+		{
+			m_SlingShot.SwitchState(new Holding(m_SlingShot));
+		}
+	}
+	public void OnExit()
+	{
+		m_SlingShot.Fire();
 	}
 }

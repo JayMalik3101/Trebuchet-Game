@@ -321,10 +321,14 @@ public class OVRGrabber : MonoBehaviour
         if (forceTeleport)
         {
 			grabbedRigidbody.transform.position = grabbablePosition;
-			if (m_grabbedObj.m_BothGrabbed == false)
+			if (m_grabbedObj.m_IsSlingShot == false)
 			{
 				grabbedRigidbody.transform.rotation = grabbableRotation;
 			}
+			//else
+			//{
+			//	transform.rotation = grabbedRigidbody.transform.rotation;
+			//}
         }
         else
         {
