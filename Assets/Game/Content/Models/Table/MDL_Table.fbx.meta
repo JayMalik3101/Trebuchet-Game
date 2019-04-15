@@ -1,72 +1,29 @@
 fileFormatVersion: 2
-guid: 14434a7c8cb705147b203839be442e3f
+guid: c7a4c6ea5e663c148a7d4c59b6f47187
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
     100000: //RootNode
-    100002: pCube1
-    100004: pCube2
-    100006: pCube3
-    100008: pCube4
-    100010: pCylinder1
-    100012: pCylinder2
-    100014: pCylinder3
-    100016: pCylinder4
-    100018: pCylinder5
-    100020: pCylinder6
-    100022: pCylinder7
-    100024: pCylinder8
-    100026: pCylinder9
-    100028: pPipe1
-    100030: transform1
-    100032: transform10
-    100034: transform11
-    100036: transform12
-    100038: transform2
-    100040: transform3
-    100042: transform4
-    100044: transform5
-    100046: transform6
-    100048: transform7
-    100050: transform8
-    100052: transform9
+    100002: Table_Base
+    100004: Table_Bottom
+    100006: Table_Top
     400000: //RootNode
-    400002: pCube1
-    400004: pCube2
-    400006: pCube3
-    400008: pCube4
-    400010: pCylinder1
-    400012: pCylinder2
-    400014: pCylinder3
-    400016: pCylinder4
-    400018: pCylinder5
-    400020: pCylinder6
-    400022: pCylinder7
-    400024: pCylinder8
-    400026: pCylinder9
-    400028: pPipe1
-    400030: transform1
-    400032: transform10
-    400034: transform11
-    400036: transform12
-    400038: transform2
-    400040: transform3
-    400042: transform4
-    400044: transform5
-    400046: transform6
-    400048: transform7
-    400050: transform8
-    400052: transform9
+    400002: Table_Base
+    400004: Table_Bottom
+    400006: Table_Top
     2100000: defaultPolygonShader
-    2300000: pCylinder8
-    2300002: pCylinder9
-    3300000: pCylinder8
-    3300002: pCylinder9
-    4300000: pCylinder8
-    4300002: pCylinder9
+    2300000: Table_Base
+    2300002: Table_Bottom
+    2300004: Table_Top
+    3300000: Table_Base
+    3300002: Table_Bottom
+    3300004: Table_Top
+    4300000: Table_Bottom
+    4300002: Table_Base
+    4300004: Table_Top
   externalObjects: {}
   materials:
-    importMaterials: 1
+    importMaterials: 0
     materialName: 0
     materialSearch: 1
     materialLocation: 1
@@ -126,7 +83,7 @@ ModelImporter:
     legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
     blendShapeNormalImportMode: 1
     normalSmoothingSource: 0
-  importAnimation: 1
+  importAnimation: 0
   copyAvatar: 0
   humanDescription:
     serializedVersion: 2
