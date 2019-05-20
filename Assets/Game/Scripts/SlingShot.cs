@@ -90,11 +90,10 @@ public class SlingShot : MonoBehaviour
 		Vector3 relativePos = m_Target.position - m_String.position;
 		Quaternion rotation = Quaternion.LookRotation(relativePos, Vector3.up);
 		transform.rotation = rotation;
-		relativePos = m_String.position - m_Target.position;
-		rotation = Quaternion.LookRotation(relativePos, Vector3.up);
-		m_String.transform.rotation = rotation;
-		m_Grabbable.m_BothGrabbed = false;
-		m_StringGrabbable.m_BothGrabbed = false;
+		//relativePos = m_String.position - m_Target.position;
+		//rotation = Quaternion.LookRotation(relativePos, Vector3.up);
+		m_String.transform.LookAt(m_Target.position);
+		m_String.transform.eulerAngles = m_String.transform.eulerAngles + Vector3.forward * 180;
 	}
 
 	public void FreezeProjectile()
@@ -183,6 +182,7 @@ public class Holding : IState
 	{
 		m_SlingShot.m_Grabbable.m_BothGrabbed = false;
 		m_SlingShot.m_StringGrabbable.m_BothGrabbed = false;
+		m_SlingShot.m_Grabbable.m_OneGrabbed = true;
 	}
 	public void Update()
 	{
@@ -194,7 +194,7 @@ public class Holding : IState
 	}
 	public void OnExit()
 	{
-
+		m_SlingShot.m_Grabbable.m_OneGrabbed = false;
 	}
 }
 

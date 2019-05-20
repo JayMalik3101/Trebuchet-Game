@@ -35,6 +35,7 @@ public class OVRGrabbable : MonoBehaviour
 
 	[SerializeField] public bool m_IsSlingShot;
 	public bool m_BothGrabbed;
+	public bool m_OneGrabbed = true;
 
     protected bool m_grabbedKinematic = false;
     protected Collider m_grabbedCollider = null;
