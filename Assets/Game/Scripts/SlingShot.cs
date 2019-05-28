@@ -78,7 +78,7 @@ public class SlingShot : MonoBehaviour
 			m_CurrentProjectile = null;
 			m_Timer = m_OriginalTimer;
 			m_Distance = 0;
-			//m_Stats.m_ShotsFired++;
+			m_Stats.m_ShotsFired++;
 		}
 	}
 
