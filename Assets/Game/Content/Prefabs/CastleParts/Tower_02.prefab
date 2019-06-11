@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 7420804518371583200}
   - component: {fileID: 5491002880628726750}
-  - component: {fileID: 3496862710271825247}
   - component: {fileID: 5287098244787647049}
+  - component: {fileID: 240707083858241091}
   m_Layer: 0
   m_Name: Tower_02
   m_TagString: Untagged
@@ -47,22 +47,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab4ef6a6d61003841bd9858ecb42c2c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_NeededVelocity: 1
+  m_NeededVelocity: 0.5
   m_PristinePrefab: {fileID: 7420804518371227854}
   m_BrokenPrefab: {fileID: 7420804518371227856}
---- !u!65 &3496862710271825247
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7420804518371227840}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 3.0557165, y: 3.1320114, z: 3.1021004}
-  m_Center: {x: -0.046523094, y: 1.5301781, z: -0.009518623}
+  m_Broken: 0
 --- !u!54 &5287098244787647049
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -79,6 +67,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!65 &240707083858241091
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7420804518371227840}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 3.226966, y: 3, z: 3.226966}
+  m_Center: {x: -0.000000059604645, y: 1.5, z: 0}
 --- !u!1 &7420804518371227842
 GameObject:
   m_ObjectHideFlags: 0
@@ -181,7 +182,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7420804518371227842}
   serializedVersion: 2
-  m_Mass: 1
+  m_Mass: 0.5
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
@@ -291,7 +292,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7420804518371227844}
   serializedVersion: 2
-  m_Mass: 1
+  m_Mass: 0.5
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
@@ -401,7 +402,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7420804518371227846}
   serializedVersion: 2
-  m_Mass: 1
+  m_Mass: 0.5
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
@@ -511,7 +512,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7420804518371227848}
   serializedVersion: 2
-  m_Mass: 1
+  m_Mass: 0.5
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
@@ -621,7 +622,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7420804518371227850}
   serializedVersion: 2
-  m_Mass: 1
+  m_Mass: 0.5
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
@@ -731,7 +732,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7420804518371227852}
   serializedVersion: 2
-  m_Mass: 1
+  m_Mass: 0.5
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1

@@ -8,7 +8,7 @@ public class WallFunctionality : MonoBehaviour
 	[SerializeField] GameObject m_PristinePrefab;
 	[SerializeField] GameObject m_BrokenPrefab;
 	private BoxCollider[] m_Colliders = new BoxCollider[2];
-	
+    public bool m_Broken;
     // Start is called before the first frame update
     void Start()
     {
@@ -52,6 +52,7 @@ public class WallFunctionality : MonoBehaviour
 		m_PristinePrefab.SetActive(false);
 		m_BrokenPrefab.transform.parent = null;
 		m_BrokenPrefab.SetActive(true);
+        m_Broken = true;
 		gameObject.SetActive(false);
 	}
 }
