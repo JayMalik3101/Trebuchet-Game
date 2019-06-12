@@ -99,7 +99,6 @@ public class CatapultShot : MonoBehaviour
 
 	private void ThrowBoulder()
 	{
-		
 		if(m_CurrentBoulder != null)
 		{
 			UnFreezeBoulder();
