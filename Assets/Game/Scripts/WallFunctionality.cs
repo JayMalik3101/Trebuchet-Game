@@ -17,9 +17,14 @@ public class WallFunctionality : MonoBehaviour
 
 	private void OnTriggerEnter(Collider other)
 	{
-		if(other.CompareTag("Projectile") || other.CompareTag("Structure"))
+		
+	}
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.transform.CompareTag("Projectile") || collision.transform.CompareTag("Structure"))
 		{
-			Rigidbody rigidbody = other.GetComponent<Rigidbody>();
+			Rigidbody rigidbody = collision.transform.GetComponent<Rigidbody>();
 			
 			if(rigidbody != null)
 			{
@@ -41,9 +46,9 @@ public class WallFunctionality : MonoBehaviour
 					SwitcheRoo();
 				}
 			}
-		}
-	}
-	private void SwitcheRoo()
+		}    }
+
+    private void SwitcheRoo()
 	{
 		for (int i = 0; i < m_Colliders.Length; i++)
 		{

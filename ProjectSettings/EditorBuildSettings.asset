@@ -9,6 +9,6 @@ EditorBuildSettings:
     path: 
     guid: 00000000000000000000000000000000
   - enabled: 1
-    path: Assets/Game/Scenes/UserScenes/David/DavidScene.unity
-    guid: ad4c144c02349e7408b87fe08d112492
+    path: Assets/Game/Scenes/UserScenes/David/David.unity
+    guid: 668a2d11637f7c447ad1e9aaa557c17b
   m_configObjects: {}

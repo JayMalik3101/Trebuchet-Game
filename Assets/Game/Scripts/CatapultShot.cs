@@ -30,12 +30,15 @@ public class CatapultShot : MonoBehaviour
 	// Start is called before the first frame update
 	void Start()
     {
-		FreezeBoulder();
+        if(m_CurrentBoulder != null)
+        {
+            FreezeBoulder();
+        }
 		m_OriginalEulerRotation = m_Launcher.localEulerAngles;
 		m_LaunchingCompelete += Returning;
 		m_ReturnComplete += ReturningComplete;
 		m_Grabbable = GetComponent<OVRGrabbable>();
-		m_Stats = GameObject.Find("Stats").GetComponent<StatKeeping>();
+		m_Stats = GameObject.Find("Stats").GetComponent<StatKeeping>(); 
 	}
 
     // Update is called once per frame
