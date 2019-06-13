@@ -115,6 +115,7 @@ public class CatapultShot : MonoBehaviour
 		m_CurrentBoulder.constraints = RigidbodyConstraints.FreezeAll;
 		m_CurrentBoulder.transform.parent = m_Origin;
 		m_CurrentBoulder.useGravity = false;
+        m_CurrentBoulder.GetComponent<OVRGrabbable>().enabled = false;
 	}
 
 	private void UnFreezeBoulder()
@@ -123,5 +124,6 @@ public class CatapultShot : MonoBehaviour
 		m_CurrentBoulder.constraints = RigidbodyConstraints.None;
 		m_CurrentBoulder.transform.parent = null;
 		m_CurrentBoulder.useGravity = true;
-	}
+        m_CurrentBoulder.GetComponent<OVRGrabbable>().enabled = true;
+    }
 }
