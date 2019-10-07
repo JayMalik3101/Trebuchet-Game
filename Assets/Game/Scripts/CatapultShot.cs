@@ -93,7 +93,8 @@ public class CatapultShot : MonoBehaviour
 	private void ReturningComplete()
 	{
 		m_Launcher.localEulerAngles = m_OriginalEulerRotation;
-		m_ReadyToThrow = true;
+        m_CurrentBoulder = null;
+        m_ReadyToThrow = true;
 		m_Returning = false;
 	}
 
@@ -103,7 +104,6 @@ public class CatapultShot : MonoBehaviour
 		{
 			UnFreezeBoulder();
 			m_CurrentBoulder.AddForce(m_Origin.up * m_Power, ForceMode.Impulse);
-			m_CurrentBoulder = null;
 			m_Stats.m_ShotsFired ++;
 		}
 		m_CurrentlyLaunching = false;
@@ -115,15 +115,16 @@ public class CatapultShot : MonoBehaviour
 		m_CurrentBoulder.constraints = RigidbodyConstraints.FreezeAll;
 		m_CurrentBoulder.transform.parent = m_Origin;
 		m_CurrentBoulder.useGravity = false;
-        m_CurrentBoulder.GetComponent<OVRGrabbable>().enabled = false;
+        m_CurrentBoulder.GetComponent<Collider>().enabled = false;
 	}
 
 	private void UnFreezeBoulder()
 	{
-		m_CurrentBoulder.velocity = Vector3.zero;
+        m_CurrentBoulder.GetComponent<Collider>().enabled = true;
+        m_CurrentBoulder.velocity = Vector3.zero;
 		m_CurrentBoulder.constraints = RigidbodyConstraints.None;
 		m_CurrentBoulder.transform.parent = null;
 		m_CurrentBoulder.useGravity = true;
-        m_CurrentBoulder.GetComponent<OVRGrabbable>().enabled = true;
+        
     }
 }
